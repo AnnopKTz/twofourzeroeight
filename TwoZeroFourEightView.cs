@@ -27,7 +27,8 @@ namespace twozerofoureight
 
         public void Notify(Model m)
         {
-            UpdateBoard(((TwoZeroFourEightModel) m).GetBoard());
+            UpdateBoard(((TwoZeroFourEightModel)m).GetBoard());
+            scoreShow.Text = ((TwoZeroFourEightModel)model).UpdateScore();
         }
 
         private void UpdateTile(Label l, int i)
@@ -41,10 +42,10 @@ namespace twozerofoureight
             switch (i)
             {
                 case 0:
-                    l.BackColor = Color.Gray;
+                    l.BackColor = Color.DarkGray;
                     break;
                 case 2:
-                    l.BackColor = Color.DarkGray;
+                    l.BackColor = Color.Aqua;
                     break;
                 case 4:
                     l.BackColor = Color.Orange;
@@ -52,8 +53,14 @@ namespace twozerofoureight
                 case 8:
                     l.BackColor = Color.Red;
                     break;
-                default:
+                case 16:
                     l.BackColor = Color.Green;
+                    break;
+                case 32:
+                    l.BackColor = Color.HotPink;
+                    break;
+                default:
+                    l.BackColor = Color.Gold;
                     break;
             }
         }
@@ -77,7 +84,7 @@ namespace twozerofoureight
             UpdateTile(lbl33,board[3, 3]);
         }
 
-        private void btnLeft_Click(object sender, EventArgs e)
+       private void btnLeft_Click(object sender, EventArgs e)
         {
             controller.ActionPerformed(TwoZeroFourEightController.LEFT);
         }
@@ -97,5 +104,29 @@ namespace twozerofoureight
             controller.ActionPerformed(TwoZeroFourEightController.DOWN);
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Right))
+            {
+                btnRight.PerformClick();
+                return true;
+            }
+            else if (keyData == (Keys.Left))
+            {
+                btnLeft.PerformClick();
+                return true;
+            }
+            else if (keyData == (Keys.Up))
+            {
+                btnUp.PerformClick();
+                return true;
+            }
+            else if (keyData == (Keys.Down))
+            {
+                btnDown.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }
