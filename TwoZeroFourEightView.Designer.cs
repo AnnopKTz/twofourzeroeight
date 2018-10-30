@@ -301,7 +301,7 @@
             // 
             this.scoreShow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.scoreShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scoreShow.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.scoreShow.ForeColor = System.Drawing.SystemColors.InfoText;
             this.scoreShow.Location = new System.Drawing.Point(254, 435);
             this.scoreShow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.scoreShow.Name = "scoreShow";
